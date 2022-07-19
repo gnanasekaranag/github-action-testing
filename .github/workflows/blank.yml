@@ -12,6 +12,16 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      service_env:
+        description: 'select the environment'
+        required: true
+        type: choice
+        default: dev
+        options:
+          - dev
+          - stg
+          - prd
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,7 +29,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: dev
+    environment: ${{ inputs.service_env }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
