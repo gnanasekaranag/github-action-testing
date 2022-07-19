@@ -35,4 +35,4 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo TYK_URL: ${TYK_URL}
+          echo TYK_URL: ${{ secrets.TYK_URL }}
